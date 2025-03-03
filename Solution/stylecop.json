@@ -1,0 +1,18 @@
+{
+    "settings": {
+      "documentationRules": {
+        "documentInterfaces": true,
+        "documentEnumFields": true,
+        "documentPrivateFields": false
+      },
+      "orderingRules": {
+        "usingDirectivesPlacement": "outsideNamespace",
+        "blankLinesBetweenUsingGroups": 1,
+        "allowSystemUsingDirectivesFirst": true
+      },
+      "maintainabilityRules": {
+        "ruleSet": "default"
+      }
+    }
+  }
+  

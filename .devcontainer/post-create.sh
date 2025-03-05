@@ -1,12 +1,15 @@
-dotnet restore
+#!/bin/bash
+set -e
 
 echo "Installing Google Chrome..."
+
 sudo apt update
-sudo apt-get upgrade -y
+sudo apt install -y wget
 
-sudo apt-get install -y libxss1 libappindicator3-1 libindicator7 fonts-liberation libdbus-1-3
+wget -qO- https://dl.google.com/linux/linux_signing_key.pub | sudo gpg --dearmor -o /usr/share/keyrings/google-chrome-keyring.gpg
+echo 'deb [signed-by=/usr/share/keyrings/google-chrome-keyring.gpg] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
 
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo dpkg -i google-chrome-stable_current_amd64.deb
+sudo apt update
+sudo apt install -y google-chrome-stable
 
-google-chrome-stable --version && echo "✅ Google Chrome installed successfully"
+echo "✅ Google Chrome installed successfully"

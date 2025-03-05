@@ -13,3 +13,11 @@ sudo apt update
 sudo apt install -y google-chrome-stable
 
 echo "✅ Google Chrome installed successfully"
+
+echo "Restoring solution..."
+
+cd Solution/
+dotnet restore
+cd ..
+
+echo "✅ Solution restored successfully"

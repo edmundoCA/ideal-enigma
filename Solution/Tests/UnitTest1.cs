@@ -1,3 +1,5 @@
+using Scraper.Enums;
+
 namespace Tests;
 
 public class Tests
@@ -7,9 +9,11 @@ public class Tests
     {
     }
 
-    [Test]
-    public void Test1()
+    [TestCase("manzana")]
+    public void SearchProduct(string name)
     {
-        Assert.Pass();
+        StepsFactory(Provider.Soriana).SearchProduct(name);
+        string header = StepsFactory(Provider.Soriana).GetHeader();
+        Assert.That(header, Contains(name));
     }
 }
